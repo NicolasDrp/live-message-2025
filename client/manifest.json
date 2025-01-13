@@ -4,7 +4,7 @@
     "display": "standalone",
     "icons": [
         {
-            "src": "public/vite.svg",
+            "src": "logo.svg",
             "type": "image/svg+xml",
             "sizes": "512x512"
         }
