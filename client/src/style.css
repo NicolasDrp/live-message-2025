@@ -21,7 +21,7 @@ body {
 }
 
 header {
-    background: linear-gradient(var(--color-primary), var(--color-secondary));
+    background: linear-gradient(to right bottom, var(--color-primary), var(--color-secondary));
     padding: 12px;
 }
 
