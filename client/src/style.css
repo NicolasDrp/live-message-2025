@@ -1,96 +1,143 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --color-primary: #f46b45;
+    --color-secondary: #eea849;
+    --color-light: #ecf0f1;
+    --color-dark: #2f3542;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: var(--color-dark);
+    color: var(--color-light);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+header {
+    background: linear-gradient(var(--color-primary), var(--color-secondary));
+    padding: 12px;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+header h1 {
+    margin: 0;
+    font-size: 1.6rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
 }
 
-.card {
-  padding: 2em;
+main section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
 }
 
-.read-the-docs {
-  color: #888;
+.message {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.message .from {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.message .content {
+    padding: 12px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+}
+
+.message .date {
+    font-size: 0.9rem;
+}
+
+.message.sent {
+    align-self: end;
+}
+
+.message.sent .content {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+main form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+main form label {
+    flex: 1;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--color-secondary);
+    font-size: 1rem;
+    background-color: transparent;
+    color: var(--color-light);
+}
+
+input:focus {
+    outline: 2px solid var(--color-primary);
+}
+
+::placeholder {
+    color: color-mix(to srgb, var(--color-light) 80%, transparent 20%);
+
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    border: none;
+    background-color: var(--color-light);
+    padding: 12px;
+    cursor: pointer;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button.primary {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+button:has(i) {
+    --size: 50px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+}
+
+button i {
+    font-size: 1.6rem;
+    color: var(--color-primary);
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+::backdrop {
+    background-color: var(--color-dark);
+    opacity: 0.75;
 }
