@@ -9,6 +9,8 @@ export class Kernel {
     }
 
     init(): void {
+        navigator.serviceWorker.register('service-worker.js');
+
         if (!userProvider.isConnected()) {
             userProvider.register();
         }
