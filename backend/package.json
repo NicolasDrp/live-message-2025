@@ -1,0 +1,10 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "license": "MIT",
+    "type": "module",
+    "dependencies": {
+        "socket.io": "^4.8.1"
+    }
+}

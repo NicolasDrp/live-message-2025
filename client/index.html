@@ -15,27 +15,12 @@
             <h1>Live Message</h1>
         </header>
 
-        <main>
+        <main id="main-room">
             <section>
-                <article class="message">
-                    <div class="from">User</div>
-                    <div class="content">
-                        Ceci est un message
-                    </div>
-                    <div class="date">22/01/2025 15h12</div>
-                </article>
-
-                <article class="message sent">
-                    <div class="from">User</div>
-                    <div class="content">
-                        Ceci est un message
-                    </div>
-                    <div class="date">22/01/2025 15h12</div>
-                </article>
             </section>
             <form>
                 <label>
-                    <input type="text" placeholder="Tapez votre message">
+                    <input type="text" name="message-content" placeholder="Tapez votre message">
                 </label>
                 <button>
                     <i class="fas fa-paper-plane"></i>
@@ -43,15 +28,15 @@
             </form>
         </main>
 
-        <dialog id="settings">
+        <dialog id="register">
             <form>
                 <div>
                     <label for="settings-username">Nom d'utilisateur</label>
-                    <input type="text" id="settings-username">
+                    <input type="text" name="username" id="settings-username">
                 </div>
 
                 <div>
-                    <input type="checkbox" id="settings-enable-notifications">
+                    <input type="checkbox" name="notificationEnabled" id="settings-enable-notifications">
                     <label for="settings-enable-notifications">
                         Activer les notifications
                     </label>
@@ -64,5 +49,14 @@
                 </div>
             </form>
         </dialog>
+
+        <template id="template-message">
+            <article class="message">
+                <div class="from"></div>
+                <div class="content">
+                </div>
+                <div class="date"></div>
+            </article>
+        </template>
     </body>
 </html>
