@@ -137,6 +137,10 @@ dialog form {
     gap: 16px;
 }
 
+dialog form input[type="text"] {
+    color: var(--color-dark);
+}
+
 ::backdrop {
     background-color: var(--color-dark);
     opacity: 0.75;
