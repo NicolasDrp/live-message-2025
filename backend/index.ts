@@ -30,7 +30,11 @@ app.get("/push/key", (req, res) => {
 });
 
 app.post("/push/sub", (req, res) => {
-    subscriptions.push(req.body);
+    if (subscriptions.indexOf(req.body) < 0) {
+        console.log(req.body);
+        subscriptions.push(req.body);
+    }
+
     return res.json({});
 });
 

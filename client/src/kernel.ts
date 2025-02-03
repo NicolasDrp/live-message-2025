@@ -1,5 +1,6 @@
 import { RoomComponent } from "./components/room-component.ts";
 import { networkObserver } from "./services/network-observer.ts";
+import { serviceWorkerManager } from "./services/service-worker-manager.ts";
 import { userProvider } from "./services/user-provider.ts";
 
 export class Kernel {
@@ -11,7 +12,7 @@ export class Kernel {
     }
 
     init(): void {
-        navigator.serviceWorker.register('service-worker.js');
+        serviceWorkerManager.register();
 
         if (!userProvider.isConnected()) {
             userProvider.register();

@@ -31,16 +31,16 @@ const fetch = async e => {
         return;
     }
 
-    const isDataRequest = e.request.url.startsWith('http://localhost:4000');
-
-    let response = await caches.match(e.request);
-     if (response) {
-         if (isDataRequest) {
-             return fetch(e.request).catch(() => response);
-         } else {
-             return response;
-         }
-    }
+    // const isDataRequest = e.request.url.startsWith('http://localhost:4000');
+    //
+    // let response = await caches.match(e.request);
+    //  if (response) {
+    //      if (isDataRequest) {
+    //          return fetch(e.request).catch(() => response);
+    //      } else {
+    //          return response;
+    //      }
+    // }
 
     return fetch(e.request);
 }

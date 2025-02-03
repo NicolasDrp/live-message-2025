@@ -1,4 +1,5 @@
 import { Message } from "../models/message.ts";
+import { apiProvider } from "../services/api-provider.ts";
 import { SocketHandler } from "../services/socket-handler.ts";
 import { userProvider } from "../services/user-provider.ts";
 
@@ -72,11 +73,9 @@ export class RoomComponent {
     }
 
     private load(): void {
-        fetch('http://localhost:4000/messages')
-            .then(response => response.json())
+        apiProvider.fetch('/messages')
             .then(data => {
                 for (const message of data) {
-                    console.log(message.author == userProvider.getUser());
                     this.render(message, message.author.username == userProvider.getUser().username);
                 }
             })
