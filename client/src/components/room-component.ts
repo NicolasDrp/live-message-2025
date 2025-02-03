@@ -76,7 +76,7 @@ export class RoomComponent {
         apiProvider.fetch('/messages')
             .then(data => {
                 for (const message of data) {
-                    this.render(message, message.author.username == userProvider.getUser().username);
+                    this.render(message, message.author.username == userProvider.getUser()?.username);
                 }
             })
         ;
