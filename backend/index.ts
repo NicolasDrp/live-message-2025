@@ -50,6 +50,10 @@ socketServer.on('connection', socket => {
     socket.on('originMessage', payload => {
         messages.push(payload);
         socket.broadcast.emit('forwardMessage', payload);
+
+        for (const subscription of subscriptions) {
+            webpush.sendNotification(subscription, JSON.stringify(payload));
+        }
     });
 });
 

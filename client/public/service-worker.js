@@ -19,6 +19,9 @@ self.addEventListener('fetch', e => {
     e.respondWith(fetch(e));
 });
 
+self.addEventListener('push', e => {
+    e.waitUntil(push(e));
+});
 
 const install = async e => {
     caches.open(assetCacheKey).then(cache => {
@@ -44,3 +47,11 @@ const fetch = async e => {
 
     return fetch(e.request);
 }
+
+const push = async e => {
+    const message = await e.data.json();
+    self.registration.showNotification('Nouveau Message de ' + message.author.username, {
+        icon: 'http://localhost:5173/logo.svg',
+        body: message.content,
+    });
+};
