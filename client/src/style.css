@@ -145,3 +145,13 @@ dialog form input[type="text"] {
     background-color: var(--color-dark);
     opacity: 0.75;
 }
+
+.hidden {
+    display: none!important;
+}
+
+#offline-status {
+    background-color: red;
+    text-align: center;
+    padding: 12px;
+}

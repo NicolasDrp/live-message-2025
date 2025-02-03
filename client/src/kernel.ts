@@ -1,4 +1,5 @@
 import { RoomComponent } from "./components/room-component.ts";
+import { networkObserver } from "./services/network-observer.ts";
 import { userProvider } from "./services/user-provider.ts";
 
 export class Kernel {
@@ -6,6 +7,7 @@ export class Kernel {
 
     constructor() {
         this.init();
+        networkObserver.init();
     }
 
     init(): void {

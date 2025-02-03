@@ -9,6 +9,7 @@ export class RoomComponent {
     constructor(private id: string, container: HTMLElement) {
         this.buildElements(container);
         this.bindEvents();
+        this.load();
     }
 
     buildElements(container: HTMLElement): void {
@@ -68,6 +69,18 @@ export class RoomComponent {
         }
 
         this.elements.feed.appendChild(messageElement);
+    }
+
+    private load(): void {
+        fetch('http://localhost:4000/messages')
+            .then(response => response.json())
+            .then(data => {
+                for (const message of data) {
+                    console.log(message.author == userProvider.getUser());
+                    this.render(message, message.author.username == userProvider.getUser().username);
+                }
+            })
+        ;
     }
 }
 
